@@ -1,0 +1,285 @@
+@import url("https://fonts.googleapis.com/css?family=Lobster");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+* {
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+  font-size: 12px;
+}
+
+/* CSS GRID */
+@media (min-width: 800px) {
+  .page {
+    display: grid;
+    width: 100vw;
+    height: 100vw;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: auto 4fr 1fr;
+    grid-gap: 24px;
+    grid-template-areas: "header header header" "ccleft ccmid ccright" "footer footer footer";
+    font-family: "Raleway", sans-serif;
+  }
+}
+@media (max-width: 800px) {
+  .page {
+    display: grid;
+    width: 100vw;
+    height: 100vw;
+    grid-template-rows: auto 1fr 4fr 1fr 1fr;
+    grid-gap: 24px;
+    grid-template-areas: "header" "ccleft" "ccmid" "ccright" "footer";
+    font-family: "Raleway", sans-serif;
+  }
+}
+html, body {
+  height: 100%;
+}
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -100;
+  transform: scaleX(2);
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.header {
+  grid-area: header;
+  border-bottom: 2px solid #eee;
+  padding: 32px;
+  background-color: #0af;
+  box-shadow: 2px 0px 2px 2px #333;
+}
+
+.content-col-left {
+  grid-area: ccleft;
+  padding: 16px;
+}
+
+.content-col-mid {
+  grid-area: ccmid;
+  padding: 16px;
+}
+
+.content-col-right {
+  grid-area: ccright;
+  padding: 16px;
+}
+
+.footer {
+  grid-area: footer;
+  border-top: 2px solid #eee;
+  padding: 16px;
+  background-color: #0af;
+  box-shadow: -2px 0px 2px 2px #333;
+}
+
+/* STYLES */
+h1, h2, h3, h4, h5, h6 {
+  display: block;
+  margin: 8px;
+}
+
+.title {
+  font-size: 2.5rem;
+  text-shadow: -2px -2px 0px #666;
+}
+
+.subtitle {
+  font-weight: normal !important;
+  font-style: italic;
+  font-size: 1.8rem;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Lobster", cursive;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.75rem;
+}
+
+.subtitle, h2 {
+  color: #fff;
+  text-shadow: 4px 4px 2px #000;
+}
+
+.center {
+  text-align: center;
+}
+
+.m8 {
+  margin: 8px;
+}
+
+.p8 {
+  padding: 8px;
+}
+
+.flex-menu-tall {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.flex-menu-tall > .but-menu > .but {
+  margin: 0px;
+  border-radius: 0px;
+}
+
+.flex-menu-tall > .but-menu > .but:first-child {
+  border-radius: 4px 4px 0px 0px !important;
+}
+
+.flex-menu-tall > .but-menu > .but:last-child {
+  border-radius: 0px 0px 4px 4px !important;
+}
+
+.but {
+  display: block;
+  margin: 8px;
+  padding: 8px;
+  text-decoration: none;
+  color: #fff;
+  background-color: #0af;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 2px 2px 2px 2px #888;
+}
+
+.but:hover {
+  color: #666;
+  background-color: #0df;
+}
+
+.but:active {
+  background-color: #07b;
+}
+
+.but.square {
+  display: inline-block;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tile-stacked {
+  /*courtesy https://gridbyexample.com/patterns/media-object/*/
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: "title title" "media body" "footer footer";
+  border: 2px solid #eee;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 32px 16px;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 2px #888;
+}
+
+.tile-stacked > .tile-title {
+  grid-area: title;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.tile-stacked > .tile-media {
+  grid-area: media;
+  text-align: center;
+}
+
+.tile-stacked > .tile-body {
+  grid-area: body;
+}
+
+.tile-stacked > .tile-footer {
+  grid-area: footer;
+}
+
+.tile-stacked:nth-child(2n) {
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas: "title title" "body media" "footer footer";
+  background-color: #eee;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 16px;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 2px 2px 2px 2px #888;
+}
+
+.card-media > img {
+  display: block;
+  margin: 0px auto;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-around;
+}
+
+.card:nth-child(2n) {
+  background-color: #eee;
+}
+
+.footer-grid {
+  display: grid;
+  width: 50%;
+  height: 128px;
+  margin: 0px auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 8px;
+  text-align: center;
+}
